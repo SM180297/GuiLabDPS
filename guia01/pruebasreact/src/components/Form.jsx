@@ -2,12 +2,18 @@ import React, {useState} from 'react';
 import Todo from '../components/Todo';
 
 const Form = () => {
-    const [todo, setTodo] = useState({})
-    const [num, setTodoo] = useState({})
+    
+    const [num, setTodoo] = useState({
+        
+    })
+    
+    const [todo, setTodo] = useState({
+
+    })
     const [todos, setTodos] = useState( [
-        {num: '1',todo: ' todo 1'},
-        {num: '2',todo: ' todo 2'},
-        {num: '3',todo: ' todo 3'}
+        {nume: '1', todoo: ' todo 1'},
+        {nume: '2',todoo: ' todo 2'},
+        {nume: '3',todoo: ' todo 3'}
         
     ])
     const handleChange = e => setTodo({[e.target.name]: e.target.value})
@@ -17,10 +23,10 @@ const Form = () => {
 alert('el campo no puede estar vacio')
 return
         }
-        setTodos([...todos,num,todo]) 
+        setTodos([...todos,{todoo: todo.todo.trim(), nume: num.num.trim()}]);
+       
        
     }
-
     
    const deleteTodo = indice => {
         const newTodos = [...todos]
@@ -36,13 +42,26 @@ return
              <input type="text" name="num" onChange={handleChang}/>
             <button onClick={handleClick}>agregar</button>
             </form>
+            
        {
-           todos.map((value, index) => (
-            <Todo todo={ value.todo } num={value.num}  key={index} index={index} deleteTodo={deleteTodo} />
+           todos.map((valu, index) => (
+            <Todo todoss={ valu.todoo } numss={valu.nume}  key={index} indexx={index} deleteTodo={deleteTodo} />
             
             ))
+           }
+            
+            {
+           // num.map((valu, index) => (
+             //   <Todo todoss={ valu.todo } numss={valu.num}  key={index} indexx={index} deleteTodo={deleteTodo} />
+                
+              //  ))
        }
-       
+          {
+           // todo.map((valu, index) => (
+             //   <Todo todoss={ valu.todo } numss={valu.num}  key={index} indexx={index} deleteTodo={deleteTodo} />
+                
+              //  ))
+       }
         </>
     )
 }
